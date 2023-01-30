@@ -15,6 +15,10 @@ GCPプロジェクト名:api-test
 DB:[使用するスプレッドシート](https://docs.google.com/spreadsheets/d/1fIePGDbSQ80xQrK6QwWfb5EPQKtl1pcTgtfiQSs0knE/edit#gid=101134873)  
 fluskのデプロイ先：[Azuru]()
 
+
 参考資料:  
 [辞書のリストの検索](https://python-academia.com/dict-list-search/)
+
+[Azure Web AppsではじめるFlask入門](https://qiita.com/y_a_m_a/items/2fef42212f5ffeb11531)
+
 

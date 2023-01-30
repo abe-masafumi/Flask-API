@@ -1,6 +1,8 @@
 # flusk-API
 API作りたい時これ使って
 
+デプロイURL:[Web Apiテスト用](https://flusk-api-study.azurewebsites.net)
+
 ```
 flask --app main run
 ```
@@ -13,7 +15,7 @@ flask --app main run
 GCPプロジェクト名:api-test
 
 DB:[使用するスプレッドシート](https://docs.google.com/spreadsheets/d/1fIePGDbSQ80xQrK6QwWfb5EPQKtl1pcTgtfiQSs0knE/edit#gid=101134873)  
-fluskのデプロイ先：[Azuru]()
+fluskのデプロイ先：[Azuru](https://portal.azure.com/#home)
 
 
 参考資料:  

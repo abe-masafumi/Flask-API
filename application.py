@@ -40,7 +40,7 @@ def goutput_data():
       # 辞書型から指定した値を持つものをデータを取得
       # ❓petIDはnumber型でいいのか❓今はいけてる
       include_id_list = list(filter(lambda item : item['PetID'] == petid, results02))
-      i["helth"] = include_id_list[0:]
+      i["health"] = include_id_list[0:]
     # もしパラメータが来たら指定された値を持つ情報を返す
     if contents:
         results01 = list(filter(lambda item : item['PetID'] == contents, results01))

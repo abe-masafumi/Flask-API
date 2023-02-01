@@ -4,22 +4,28 @@ import requests
 app = Flask(__name__)
 
 # ペット情報のjsonをスプレッドシートから取得
+
+
 def get_pets_data():
     url = "https://sheets.googleapis.com/v4/spreadsheets/1fIePGDbSQ80xQrK6QwWfb5EPQKtl1pcTgtfiQSs0knE/values/pets?key=AIzaSyCwIfAOPR1euxoN-7_UcbMIjRSWzwH3IIo"
     response = requests.get(url)
     return response
 
 # 　健康診断情報のjsonをスプレッドシートから取得
+
+
 def get_health_checkup_data():
     url = "https://sheets.googleapis.com/v4/spreadsheets/1fIePGDbSQ80xQrK6QwWfb5EPQKtl1pcTgtfiQSs0knE/values/健康診断?key=AIzaSyCwIfAOPR1euxoN-7_UcbMIjRSWzwH3IIo"
     response = requests.get(url)
     return response
 
+
 @app.route("/")
 def helloworld():
     return "<p>Hello world</p>"
 
-@app.route("/output",methods=["GET"])
+
+@app.route("/output", methods=["GET"])
 def goutput_data():
     # パラメータの取得z
     contents = request.args.get('q', '')
@@ -36,14 +42,19 @@ def goutput_data():
     results02 = [dict(zip(keys02, item)) for item in values02]
     # PetIDを軸にしてDictを結合
     for i in results01:
-      petid = i["PetID"]
-      # 辞書型から指定した値を持つものをデータを取得
-      # ❓petIDはnumber型でいいのか❓今はいけてる
-      include_id_list = list(filter(lambda item : item['PetID'] == petid, results02))
-      i["health"] = include_id_list[0:]
+        petid = i["PetID"]
+    # 辞書型から指定した値を持つものをデータを取得
+        include_id_list = list(
+            filter(lambda item: item['PetID'] == petid, results02))
+    # 同じジャンルの何個目のデータかを[count]として追加
+        for w, u in enumerate(include_id_list):
+            u["count"] = w
+    # include_id_list = list(filter(lambda item : item['PetID'] == petid, include_id_list))
+        i["health"] = include_id_list[0:]
     # もしパラメータが来たら指定された値を持つ情報を返す
     if contents:
-        results01 = list(filter(lambda item : item['PetID'] == contents, results01))
+        results01 = list(
+            filter(lambda item: item['PetID'] == contents, results01))
 
     return results01
 

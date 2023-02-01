@@ -48,7 +48,7 @@ def goutput_data():
             filter(lambda item: item['PetID'] == petid, results02))
     # 同じジャンルの何個目のデータかを[count]として追加
         for w, u in enumerate(include_id_list):
-            u["count"] = w
+            u["count"] = str(w)
     # include_id_list = list(filter(lambda item : item['PetID'] == petid, include_id_list))
         i["health"] = include_id_list[0:]
     # もしパラメータが来たら指定された値を持つ情報を返す
